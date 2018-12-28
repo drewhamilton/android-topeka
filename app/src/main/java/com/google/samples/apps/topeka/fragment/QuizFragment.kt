@@ -130,7 +130,7 @@ class QuizFragment : Fragment() {
         activity?.requestLogin { player ->
                 if (player.valid()) {
                     avatarView?.setAvatar(player.avatar!!.drawableId)
-                    with(ViewCompat.animate(avatarView)) {
+                    with(ViewCompat.animate(avatarView!!)) {
                         interpolator = FastOutLinearInInterpolator()
                         startDelay = 500
                         scaleX(1f)
