@@ -4,7 +4,7 @@
     <application>
 
         <activity
-            android:name="com.google.samples.apps.topeka.categories.activity.CategorySelectionActivity"
+            android:name=".activity.CategorySelectionActivity"
             android:theme="@style/Topeka.CategorySelectionActivity">
 
             <intent-filter>
@@ -13,7 +13,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="http"
-                    android:host="topeka.samples.androidinstantapps.com"
+                    android:host="topeka.instantappsample.com"
                     android:pathPrefix="/categories" />
             </intent-filter>
 
@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="topeka.samples.androidinstantapps.com"
+                    android:host="topeka.instantappsample.com"
                     android:pathPrefix="/categories" />
             </intent-filter>
 
