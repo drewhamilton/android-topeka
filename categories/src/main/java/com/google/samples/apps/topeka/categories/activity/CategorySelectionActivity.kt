@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.topeka.activity
+package com.google.samples.apps.topeka.categories.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -26,8 +26,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.google.samples.apps.topeka.base.R
-import com.google.samples.apps.topeka.fragment.CategorySelectionFragment
+import com.google.samples.apps.topeka.categories.R
+import com.google.samples.apps.topeka.base.R as BaseR
+import com.google.samples.apps.topeka.categories.fragment.CategorySelectionFragment
 import com.google.samples.apps.topeka.helper.ActivityLaunchHelper
 import com.google.samples.apps.topeka.helper.ApiLevelHelper
 import com.google.samples.apps.topeka.helper.REQUEST_LOGIN
@@ -82,7 +83,7 @@ class CategorySelectionActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         (findViewById<TextView>(R.id.score)).text =
-                getString(R.string.x_points, database().getScore())
+                getString(BaseR.string.x_points, database().getScore())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

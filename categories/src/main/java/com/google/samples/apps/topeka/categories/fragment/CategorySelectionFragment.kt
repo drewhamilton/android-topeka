@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.topeka.fragment
+package com.google.samples.apps.topeka.categories.fragment
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -31,14 +31,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import com.google.samples.apps.topeka.base.R
-import com.google.samples.apps.topeka.adapter.CategoryAdapter
+import com.google.samples.apps.topeka.categories.R
+import com.google.samples.apps.topeka.categories.adapter.CategoryAdapter
 import com.google.samples.apps.topeka.helper.ActivityLaunchHelper
 import com.google.samples.apps.topeka.helper.TransitionHelper
 import com.google.samples.apps.topeka.helper.beforeDrawing
 import com.google.samples.apps.topeka.model.Category
 import com.google.samples.apps.topeka.model.JsonAttributes
 import com.google.samples.apps.topeka.widget.OffsetDecoration
+import com.google.samples.apps.topeka.base.R as BaseR
 
 class CategorySelectionFragment : Fragment() {
 
@@ -68,14 +69,14 @@ class CategorySelectionFragment : Fragment() {
     private fun setUpQuizGrid(categoriesView: RecyclerView) {
         with(categoriesView) {
             addItemDecoration(OffsetDecoration(context.resources
-                    .getDimensionPixelSize(R.dimen.spacing_nano)))
+                    .getDimensionPixelSize(BaseR.dimen.spacing_nano)))
             adapter = this@CategorySelectionFragment.adapter
             beforeDrawing { activity?.supportStartPostponedEnterTransition() }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_CATEGORY && resultCode == R.id.solved && data != null) {
+        if (requestCode == REQUEST_CATEGORY && resultCode == BaseR.id.solved && data != null) {
             adapter?.notifyItemChanged(data.getStringExtra(JsonAttributes.ID))
         }
         super.onActivityResult(requestCode, resultCode, data)
@@ -88,7 +89,7 @@ class CategorySelectionFragment : Fragment() {
         val animationBundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
                 *TransitionHelper.createSafeTransitionParticipants(activity,
                         false,
-                        Pair(toolbar, activity.getString(R.string.transition_toolbar))))
+                        Pair(toolbar, activity.getString(BaseR.string.transition_toolbar))))
                 .toBundle()
 
         // Start the activity with the participants, animating from one to the other.

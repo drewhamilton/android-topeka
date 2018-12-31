@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.topeka.activity
+package com.google.samples.apps.topeka.categories.activity
 
 import android.content.Context
 import android.content.Intent
