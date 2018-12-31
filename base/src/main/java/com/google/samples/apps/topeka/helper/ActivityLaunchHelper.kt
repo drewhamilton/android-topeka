@@ -37,8 +37,11 @@ class ActivityLaunchHelper {
         fun categorySelectionIntent(context: Context? = null) =
                 baseIntent(URL_CATEGORIES, context)
 
-        fun quizIntent(category: Category, context: Context? = null) =
-                baseIntent("$URL_QUIZ_BASE${category.id}", context)
+        fun quizIntent(category: Category, context: Context? = null): Intent {
+            val intent = baseIntent("$URL_QUIZ_BASE${category.id}", context)
+            intent.putExtra(Category.TAG, category.id)
+            return intent
+        }
 
         fun signInIntent(context: Context? = null, edit: Boolean = false): Intent =
                 baseIntent(URL_SIGNIN, context).putExtra(EXTRA_EDIT, edit)
